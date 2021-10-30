@@ -19,6 +19,7 @@ import { useRecoilState } from 'recoil';
 import { themeState } from '../atom/themeAtom';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import ProfileScreen from '../screens/ProfileScreen';
+import UpdateDiaryNameScreen from '../screens/UpdateDiaryNameScreen';
 
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
@@ -75,8 +76,9 @@ function AuthenticationNavigator() {
 function RootNavigator() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Profile" component={ProfileScreen} options={{ headerShown: true }} />
       <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Profile" component={ProfileScreen} options={{ headerShown: true }} />
+      <Stack.Screen name="UpdateDiaryName" component={UpdateDiaryNameScreen} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 }
@@ -90,9 +92,4 @@ function RootNavigator() {
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
-}
+
