@@ -9,6 +9,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { loadingState } from '../../atom/loadingAtom'
 import { userEntriesState } from '../../atom/userEntriesAtom'
 import EntryItem from '../../components/EntryItem'
+import HomeFooter from '../../components/HomeFooter'
 const emptyImage = require('../../assets/images/empty.png')
 
 const homeScreen = () => {
@@ -18,6 +19,7 @@ const homeScreen = () => {
     const [userEntries, setUserEntries] = useRecoilState(userEntriesState)
 
     const getUserFromDatabase = async () => {
+        setIsLoading(true)
         const response = await fetch(`${APP_URL}/user/getuser`, {
             method: 'GET',
             headers: {
@@ -43,13 +45,12 @@ const homeScreen = () => {
         const data = await response.json()
 
         setUserEntries(data)
+        setIsLoading(false)
     }
 
     useEffect(() => {
-        setIsLoading(true)
         getUserFromDatabase()
         getUserAllEntries()
-        setIsLoading(false)
     }, [])
 
     return (
@@ -58,7 +59,7 @@ const homeScreen = () => {
             {
                 (isLoading) ? (
                     <View style={styles.Loader}>
-                        <ActivityIndicator size="large" />
+                        <ActivityIndicator size="large" color="black" />
                     </View>
                     
                 ) : 
@@ -66,17 +67,23 @@ const homeScreen = () => {
                     <>
                     {
                         (userEntries.length === 0) ? (
+                            <>
                             <View style={styles.Loader}>
                                 <Image source={emptyImage} style={styles.emptyImage} />
                             </View>
+                            <HomeFooter />
+                            </>
                         ) : (
+                            <>
                             <FlatList
                                 data={userEntries}
                                 renderItem={({item, index}) => <EntryItem itemData={item} key={index} />}
                                 keyExtractor={(item) => item._id}
-                                showsVerticalScrollIndicator= {false}
+                                // showsVerticalScrollIndicator= {false}
                                 style={styles.flatListStyle}
                             />
+                            <HomeFooter/>
+                            </>
                         )
                     }
                     </>

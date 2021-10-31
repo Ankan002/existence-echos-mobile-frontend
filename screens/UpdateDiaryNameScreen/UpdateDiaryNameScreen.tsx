@@ -56,7 +56,7 @@ const UpdateDiaryNameScreen = () => {
 
       setIsLoading(true)
 
-      if(newDiaryName.length > 20){
+      if(newDiaryName.trim().length > 20){
         Alert.alert(
             "Invalid Diary Name",
             "The Diary Name should be at most 20 characters long.",

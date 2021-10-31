@@ -20,6 +20,7 @@ import { themeState } from '../atom/themeAtom';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import ProfileScreen from '../screens/ProfileScreen';
 import UpdateDiaryNameScreen from '../screens/UpdateDiaryNameScreen';
+import CreateEntryScreen from '../screens/CreateEntryScreen';
 
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
@@ -39,14 +40,31 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
     }
   }
 
+  const getCurrentTheme = async () => {
+    try{
+      const themeValue = await AsyncStorage.getItem('theme')
+      if(themeValue === null){
+        setCurrentTheme('light')
+        await AsyncStorage.setItem('theme', 'light')
+      }
+      else{
+        setCurrentTheme(themeValue)
+      }
+    }
+    catch(e){
+      console.log(e)
+    }
+  }
+
   useEffect(() => {
     getAuthenticationToken()
+    getCurrentTheme()
   }, [])
 
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
-      theme={currentTheme ? DarkTheme : DefaultTheme}>
+      theme={(currentTheme === 'dark') ? DarkTheme : DefaultTheme}>
         {
           isAuthenticated ? (
             <RootNavigator />
@@ -79,6 +97,7 @@ function RootNavigator() {
       <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
       <Stack.Screen name="Profile" component={ProfileScreen} options={{ headerShown: true }} />
       <Stack.Screen name="UpdateDiaryName" component={UpdateDiaryNameScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="CreateEntry" component={CreateEntryScreen} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 }

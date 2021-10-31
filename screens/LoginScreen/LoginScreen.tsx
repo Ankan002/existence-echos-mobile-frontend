@@ -65,7 +65,7 @@ const LoginScreen = () => {
 
     setIsLoading(true)
 
-    if(username.length<4 || username.length>20){
+    if(username.trim().length<4 || username.trim().length>20){
         Alert.alert(
             "Invalid Username",
             "The username should be at least 4 characters and at most 20 characters long.",

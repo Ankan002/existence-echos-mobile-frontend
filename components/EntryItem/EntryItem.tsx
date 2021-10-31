@@ -11,8 +11,6 @@ const EntryItem = (props: EntryItemProps) => {
 
     const {itemData} = props
 
-    console.log(props)
-
     return (
         <Pressable style={styles.entryItemContainer}>
             <View style={styles.leftLogoContainer}>

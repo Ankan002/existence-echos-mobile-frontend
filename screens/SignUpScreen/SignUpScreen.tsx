@@ -72,7 +72,7 @@ const SignUpScreen = () => {
 
         setIsLoading(true)
 
-        if(firstName.length < 2 || firstName.length > 30){
+        if(firstName.trim().length < 2 || firstName.trim().length > 30){
             Alert.alert(
                 "Invalid First Name",
                 "The username should be at least 2 characters and at most 30 characters long.",
@@ -86,7 +86,7 @@ const SignUpScreen = () => {
             return
         }
 
-        if(lastName.length > 30){
+        if(lastName.trim().length > 30){
             Alert.alert(
                 "Invalid Last Name",
                 "The Last Name should be at most 30 characters long.",
@@ -100,7 +100,7 @@ const SignUpScreen = () => {
             return
         }
 
-        if(diaryName.length > 20){
+        if(diaryName.trim().length > 20){
             Alert.alert(
                 "Invalid Diary Name",
                 "The Diary Name should be at most 20 characters long.",
@@ -114,7 +114,7 @@ const SignUpScreen = () => {
             return
         }
 
-        if(username.length < 4 || username.length > 30){
+        if(username.trim().length < 4 || username.trim().length > 30){
             Alert.alert(
                 "Invalid Username",
                 "The username should be at least 4 characters and at most 30 characters long.",

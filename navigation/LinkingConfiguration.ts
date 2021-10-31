@@ -20,6 +20,7 @@ const linking: LinkingOptions<RootStackParamList> = {
       Login: '*',
       Profile: '*',
       UpdateDiaryName: '*',
+      CreateEntry: '*'
     },
   },
 };
