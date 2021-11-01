@@ -21,6 +21,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import ProfileScreen from '../screens/ProfileScreen';
 import UpdateDiaryNameScreen from '../screens/UpdateDiaryNameScreen';
 import CreateEntryScreen from '../screens/CreateEntryScreen';
+import ViewAndDeleteScreen from '../screens/ViewAndDeleteScreen';
 
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
@@ -98,6 +99,7 @@ function RootNavigator() {
       <Stack.Screen name="Profile" component={ProfileScreen} options={{ headerShown: true }} />
       <Stack.Screen name="UpdateDiaryName" component={UpdateDiaryNameScreen} options={{ headerShown: false }} />
       <Stack.Screen name="CreateEntry" component={CreateEntryScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="ViewAndDelete" component={ViewAndDeleteScreen} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 }

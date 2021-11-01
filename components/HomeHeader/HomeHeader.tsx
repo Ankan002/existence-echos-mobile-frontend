@@ -17,8 +17,9 @@ const HomeHeader = () => {
     const timeFinder = () => {
         const today = new Date()
         const time = today.getHours()
+        console.log(time)
 
-        if(time >= 22 && time < 5){
+        if(time >= 22){
             setGreeting('Good Night')
         }
         else if(time >= 5 && time < 12){
@@ -29,6 +30,9 @@ const HomeHeader = () => {
         }
         else if(time >= 17 && time < 22){
             setGreeting('Good Evening')
+        }
+        else if(time < 5){
+            setGreeting('Good Night')
         }
     }
 

@@ -23,6 +23,7 @@ export type RootStackParamList = {
   Profile: undefined;
   UpdateDiaryName: undefined;
   CreateEntry: undefined;
+  ViewAndDelete: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<
