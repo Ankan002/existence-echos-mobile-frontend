@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { View, Text, ScrollView, Pressable, ActivityIndicator, Alert } from 'react-native'
+import { View, Text, ScrollView, Pressable, ActivityIndicator, Alert, SafeAreaView } from 'react-native'
 import styles from './styles'
 import { useNavigation, useRoute } from '@react-navigation/core'
 import ViewAndDeleteHeader from '../../components/ViewAndDeleteHeader'
@@ -83,7 +83,7 @@ const ViewAndDeleteScreen = () => {
     }
 
     return (
-        <View style={styles.AndroidSafeArea}>
+        <SafeAreaView style={styles.AndroidSafeArea}>
             <ViewAndDeleteHeader createdAtDate={entry.createdAt} />
             <View style={styles.wholeViewContainer}>
                 <ScrollView
@@ -113,7 +113,7 @@ const ViewAndDeleteScreen = () => {
                     )
                 }
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 

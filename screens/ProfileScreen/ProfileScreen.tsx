@@ -8,11 +8,15 @@ import { userState } from '../../atom/userAtom'
 import ProfileInfoBlock from '../../components/ProfileInfoBlock'
 import { Ionicons } from '@expo/vector-icons'; 
 import styles from './styles'
+import { userEntriesState } from '../../atom/userEntriesAtom'
 
 const ProfileScreen = () => {
 
     const [isAuthenticated, setIsAuthenticated] = useRecoilState(authenticatedState)
     const [user, setUser] = useRecoilState<any>(userState)
+    const [userEntries, setUserEntries] = useRecoilState<any>(userEntriesState)
+
+    const numberOfUserEntries = userEntries.length
 
     const signOut = async () => {
         try{
@@ -36,6 +40,7 @@ const ProfileScreen = () => {
             <ProfileInfoBlock field="Name" value={user.firstname+ " " + user.lastname} editable={false} />
             <ProfileInfoBlock field="Username" value={user.username} editable={false} />
             <ProfileInfoBlock field="Diary Name" value={user.diaryname} editable={true} />
+            <ProfileInfoBlock field="Total Entries" value={numberOfUserEntries} editable={false} />
             <View style={styles.signOutSection}>
                 <Pressable onPress={onSignOutClick}  >
                     <Ionicons name="ios-log-out-outline" size={60} color="black" styles={styles.button} />

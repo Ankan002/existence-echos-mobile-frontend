@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { View, Text, TextInput, Pressable, ActivityIndicator, Alert } from 'react-native'
+import { View, Text, TextInput, Pressable, ActivityIndicator, Alert, KeyboardAvoidingView, Platform, SafeAreaView } from 'react-native'
 import styles from './styles'
 import { useRecoilState } from 'recoil'
 import { userEntriesState } from '../../atom/userEntriesAtom'
@@ -90,9 +90,15 @@ const CreateEntryScreen = () => {
     }
 
     return (
-        <View style={styles.AndroidSafeArea}>
+        <SafeAreaView 
+            style={styles.AndroidSafeArea}
+        >
             <CreateEntryHeader />
-            <View style={styles.inputsContainer}>
+            <KeyboardAvoidingView
+                style={styles.inputsContainer}
+                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+                keyboardVerticalOffset={100}
+            >
                 <TextInput
                     numberOfLines={18}
                     style={styles.entryBody}
@@ -110,7 +116,7 @@ const CreateEntryScreen = () => {
                     value={significantEvent}
                     onChangeText = {(text) => setSignificantEvent(text)}
                 />
-            </View>
+            </KeyboardAvoidingView>
             <View style={styles.operationDiv}>
                 <Pressable onPress={onBackClick}>
                     <Ionicons name="caret-back-circle-outline" size={40} color="black" />
@@ -125,7 +131,7 @@ const CreateEntryScreen = () => {
                     )
                 }
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 

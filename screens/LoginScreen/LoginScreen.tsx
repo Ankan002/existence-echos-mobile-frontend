@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Pressable, TextInput, Alert, ActivityIndicator } from "react-native";
+import { View, Text, Pressable, TextInput, Alert, ActivityIndicator, SafeAreaView } from "react-native";
 import styles from "./styles";
 import { useRecoilState } from "recoil";
 import { authenticatedState } from "../../atom/authenticatedAtom";
@@ -101,7 +101,7 @@ const LoginScreen = () => {
   };
 
   return (
-    <View style={styles.AndroidSafeArea}>
+    <SafeAreaView style={styles.AndroidSafeArea}>
 
       <Text style={styles.heading}>LOGIN</Text>
 
@@ -139,7 +139,7 @@ const LoginScreen = () => {
         </Pressable>
       </View>
 
-    </View>
+    </SafeAreaView>
   );
 };
 

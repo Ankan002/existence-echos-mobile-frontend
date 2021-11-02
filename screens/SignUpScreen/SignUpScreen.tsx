@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { View, Text, Pressable, TextInput, Alert, ActivityIndicator } from "react-native";
+import { View, Text, Pressable, TextInput, Alert, ActivityIndicator, SafeAreaView } from "react-native";
 import { useRecoilState } from "recoil";
 import { authenticatedState } from "../../atom/authenticatedAtom";
 import { loadingState } from "../../atom/loadingAtom";
@@ -151,7 +151,7 @@ const SignUpScreen = () => {
     }
 
   return (
-    <View style={styles.AndroidSafeArea}>
+    <SafeAreaView style={styles.AndroidSafeArea}>
       <Text style={styles.heading}>SIGN UP</Text>
 
       <TextInput
@@ -206,7 +206,7 @@ const SignUpScreen = () => {
           <Text style={styles.buttonText}>Login</Text>
         </Pressable>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
