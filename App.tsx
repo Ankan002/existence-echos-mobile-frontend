@@ -13,12 +13,6 @@ export default function App() {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
 
-  //const [isAuthenticated, setIsAuthenticated] = useRecoilState(authenticatedState)
-
-  useEffect(() => {
-    //
-  }, [])
-
   if (!isLoadingComplete) {
     return null;
   } else {
