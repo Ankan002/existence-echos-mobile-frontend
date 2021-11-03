@@ -17,6 +17,8 @@ const LoginScreen = () => {
 
   const navigation = useNavigation();
 
+  console.log(APP_URL)
+
   //Function that is called for logging in Somebody
   const login = async () => {
       const response = await fetch(`${APP_URL}/user/login`,{

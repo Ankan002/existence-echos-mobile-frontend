@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Frontend",
-    "slug": "Frontend",
-    "version": "1.0.0",
+    "name": "Existence Echos",
+    "slug": "echos",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
@@ -23,9 +23,10 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.ankan2002.Echos"
     },
     "web": {
       "favicon": "./assets/images/favicon.png"

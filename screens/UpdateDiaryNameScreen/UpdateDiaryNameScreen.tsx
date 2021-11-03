@@ -13,6 +13,8 @@ const UpdateDiaryNameScreen = () => {
   const [isLoading, setIsLoading] = useState(false)
   const navigation = useNavigation()
 
+  console.log(APP_URL)
+
   const changeName = async () => {
       const response = await fetch(`${APP_URL}/user/updatediaryname`, {
           method: 'PUT',

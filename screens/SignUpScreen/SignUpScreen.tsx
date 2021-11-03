@@ -20,6 +20,8 @@ const SignUpScreen = () => {
     const [isLoading, setIsLoading] = useRecoilState(loadingState)
     const navigation = useNavigation()
 
+    console.log(APP_URL)
+
     //Async Function responsible Signing Up.
     const signUp = async () => {
         const response = await fetch(`${APP_URL}/user/signup`,{

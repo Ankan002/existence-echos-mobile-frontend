@@ -18,6 +18,8 @@ const CreateEntryScreen = () => {
     const [isLoading, setIsLoading] = useState<any>(false)
     const navigation = useNavigation()
 
+    console.log(APP_URL)
+
     const createTheEntry = async () => {
         const response = await fetch(`${APP_URL}/entry/create`, {
             method: 'POST',

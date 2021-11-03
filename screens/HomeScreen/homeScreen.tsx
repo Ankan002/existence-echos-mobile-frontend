@@ -18,6 +18,8 @@ const homeScreen = () => {
     const [isLoading, setIsLoading] = useRecoilState(loadingState)
     const [userEntries, setUserEntries] = useRecoilState(userEntriesState)
 
+    console.log(APP_URL)
+
     const getUserFromDatabase = async () => {
         setIsLoading(true)
         const response = await fetch(`${APP_URL}/user/getuser`, {

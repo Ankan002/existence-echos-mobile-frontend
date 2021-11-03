@@ -17,6 +17,8 @@ const ViewAndDeleteScreen = () => {
     const [isLoading, setIsLoading] = useState<any>(false)
     const [userEntries, setUserEntries] = useRecoilState<any>(userEntriesState)
 
+    console.log(APP_URL)
+
     const {entry}  = route.params
 
     const deleteTheEntry = async () => {
